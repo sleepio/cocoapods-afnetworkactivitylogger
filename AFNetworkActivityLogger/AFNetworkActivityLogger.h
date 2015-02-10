@@ -55,6 +55,11 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestLoggerLevel) {
 @property (nonatomic, strong) NSPredicate *filterPredicate;
 
 /**
+ Array that stores all of the output to send to API
+ */
+@property (nonatomic) NSMutableArray *loggerOutput;
+
+/**
  Returns the shared logger instance.
  */
 + (instancetype)sharedLogger;

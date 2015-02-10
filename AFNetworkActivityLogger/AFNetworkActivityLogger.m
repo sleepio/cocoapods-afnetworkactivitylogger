@@ -179,11 +179,21 @@ static void * AFNetworkRequestStartDate = &AFNetworkRequestStartDate;
                 break;
             case AFLoggerLevelInfo:
                 NSLog(@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime);
+                [self.loggerOutput addObject:[NSString stringWithFormat:@"%ld '%@' [%.04f s]", (long)responseStatusCode, [[response URL] absoluteString], elapsedTime]];
                 break;
             default:
                 break;
         }
     }
 }
+
+- (NSMutableArray *)loggerOutput
+{
+    if (!_loggerOutput) {
+        _loggerOutput = [[NSMutableArray alloc] init];
+    }
+    return _loggerOutput;
+}
+
 
 @end
